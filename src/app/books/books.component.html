@@ -1,0 +1,40 @@
+<h2>Programming Books List!</h2>
+
+<!-- if isShowing is true, set it to false -->
+<!-- if isShowing is false, set it to true -->
+
+<button (click)="isShowing = !isShowing">
+    <ng-container *ngIf= "!isShowing"> Show Books </ng-container>
+    <ng-container *ngIf= "isShowing"> Hide Books </ng-container>
+</button>
+
+
+<!-- This *nfIf here is to show or not the list of books, depending on
+if isShowing is True or false -->
+
+<ul *ngIf="isShowing">
+    <!-- "let singleBook" (What it does is creating a variable called singleBook) -->
+    <!-- "of books" (books is a list or a dictionary which is in books.component and
+        what "of books" does is that for every iteration in books whe  can get the
+        book.image, book.name, book.author. So it will show all the books with the
+        name and author) -->
+    <!-- "let i=index" (creates the variable i and
+        it's the index of the book in the list. "index" starts on 0 and with each
+        iterartion it will add 1 to the value of i. If I want it starts on 1, we
+        must write {{i+1}} instead of just {{i}}, wich starts on 0). -->
+
+    <ng-container  *ngFor="let singleBook of books; let i=index">
+        <p class="sno"> {{ i+1 }} </p>
+
+        <!-- Square bracket is for binding. We're going to bind this [book] property,
+            which is inside de book component (the directory, the "child"), will have
+            the value of the singleBook object that we're iterating over.-->
+         <!-- bookEmitter is something that is defined in the book directory 
+            (in book.component.ts) which uses the @Output that is for sending 
+            information from the child to the parent-->
+        <!-- The $event is for stracting all the information when the event happens. We
+            can see the event in the book.component.html which is clicking a button 
+            called Add to Cart -->
+        <app-book (bookEmitter)="addToCart($event)" [book]="singleBook"></app-book>
+    </ng-container>
+</ul>

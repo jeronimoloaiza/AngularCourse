@@ -1,0 +1,12 @@
+<li>
+    <img [src]="book.image" [alt]="book.name"  width="100"/>
+
+    <p class="title"> {{ book.name | titlecase }} 
+        by {{ book.author | titlecase }} </p>
+    <p class="currency"> {{ book.amount | currency: 'INR'}} </p>
+
+    <button (click)="addToCart()">
+        <ng-container>Add to Cart</ng-container>
+    </button>
+</li>
+
