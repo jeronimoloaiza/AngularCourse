@@ -35,6 +35,6 @@ if isShowing is True or false -->
         <!-- The $event is for stracting all the information when the event happens. We
             can see the event in the book.component.html which is clicking a button 
             called Add to Cart -->
-        <app-book (bookEmitter)="addToCart($event)" [book]="singleBook"></app-book>
+        <app-book [book]="singleBook"></app-book>
     </ng-container>
 </ul>

@@ -1,11 +1,10 @@
 import { Injectable } from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
+
 export class BooksService {
 
-  constructor(name:Name) { }
+  constructor() {}
 
   getBooks(){
     return [
@@ -38,9 +37,4 @@ export class BooksService {
       }
     ];
   }
-}
-
-
-class Name{
-  constructor(){}
 }
